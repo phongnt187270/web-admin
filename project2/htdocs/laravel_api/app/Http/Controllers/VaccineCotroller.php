@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\VaccineInjection;
+use App\Vaccine;
 
-class VaccineInjectionCotroller extends Controller
+class VaccineCotroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class VaccineInjectionCotroller extends Controller
     public function index()
     {
         //
-        return VaccineInjection::all();
+        return Vaccine::all();
     }
 
     /**
@@ -37,6 +37,7 @@ class VaccineInjectionCotroller extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
     /**
@@ -45,9 +46,10 @@ class VaccineInjectionCotroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($vaccine)
     {
         //
+        return VaccineInjection::find($vaccine);
     }
 
     /**

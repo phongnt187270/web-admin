@@ -14,12 +14,12 @@ class CreateVaccine extends Migration
     public function up()
     {
         Schema::create('vaccine', function (Blueprint $table) {
-            $table->string('vaccine_id');
-            $table->string('number');
-            $table->date('injected_date');
+            $table->string('vaccine_id')->primary();
+            $table->string('manufacturer');
+            $table->string('dose_number');
             $table->string('injected_location');
-            $table->string('cargo_number');
-            $table->primary('vaccine_id');            
+            $table->date('injected_date');
+            $table->string('commodity_number');
         });
     }
 

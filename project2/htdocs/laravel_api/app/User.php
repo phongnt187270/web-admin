@@ -15,4 +15,5 @@ class User extends Model
     protected $primaryKey = 'user_id';
     protected $foreignKey = 'vaccination_info_id';
     protected $table = 'user';
+    public $incrementing = false;
 }

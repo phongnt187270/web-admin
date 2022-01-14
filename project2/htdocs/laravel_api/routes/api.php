@@ -21,7 +21,7 @@ Route::resource('/user', 'UserController');
 
 Route::resource('/vaccination_info', 'VaccinationInfoCotroller');
 
-Route::resource('/vaccine', 'VaccineInjectionCotroller');
+Route::resource('/vaccine', 'VaccineCotroller');
 
 Route::get('/', function () {
     return view('welcome');

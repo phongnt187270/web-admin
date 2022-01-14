@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Resources\UserResource;
+use App\Http\Resources\UserCollection;
 
 class UserController extends Controller
 {
@@ -15,6 +17,7 @@ class UserController extends Controller
     public function index()
     {
         //
+        // return new UserCollection(User::paginate(1));
         return User::all();
     }
 
@@ -37,6 +40,19 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'user_id' => 'required',
+            'phonenumber' => 'required',
+            'password' => 'required',
+            'name' => 'required',
+            'dob' => 'required',
+            'division' => 'required',
+            'role' => 'required'
+        ]);
+
+        $user = User::create($request->all());
+        return new UserResource($user);
+
     }
 
     /**
@@ -45,10 +61,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($user_id)
+    public function show(User $user)
     {
         //
-        return User::find($user_id);
+        return new UserResource($user);
     }
 
     /**
@@ -69,9 +85,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
         //
+        $user->update($request->all());
+
+        return new UserResource($user);
     }
 
     /**
@@ -80,8 +99,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
         //
+        $user->delete();
     }
 }
