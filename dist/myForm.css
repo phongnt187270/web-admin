@@ -53,6 +53,11 @@ a {
   text-align: center;
 }
 
-#editForm {
-    display: none;
-  }
+#formDetail {
+  position: absolute;
+  top: -100px;
+  left: 20px;
+  display: none;   
+  z-index: 100;
+  background-color: #ffffff;
+}

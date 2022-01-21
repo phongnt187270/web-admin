@@ -87,23 +87,24 @@
                     <h1 class="mt-4">Tables</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active">User Management</li>
+                        <li class="breadcrumb-item active">Vaccine Management</li>
                     </ol>
-                    <button type="button" class="btn btn-primary" id="btnAdd">Add User</button>
+                    <button type="button" class="btn btn-primary" id="btnAdd">Add Vaccine</button>
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
-                            User Management
+                            Vaccine Management
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th class="col-2">Name</th>
-                                        <th class="col-2">Position</th>
-                                        <th class="col-2">Division</th>
-                                        <th class="col-2">PhoneNumber</th>
-                                        <th class="col-2">State</th>
+                                        <th class="col-2">Vaccine_ID</th>
+                                        <th class="col-2">Manufacture</th>
+                                        <th class="col-2">Dose Number</th>
+                                        <th class="col-2">Injected Location</th>
+                                        <th class="col-2">Injected Date</th>
+                                        <th class="col-2">Commodity Number</th>
                                         <th class="col-2">Modify</th>
                                     </tr>
                                 </thead>
@@ -121,8 +122,6 @@
                                     </div>
                                     <hr>
 
-                                    <label><b>ID</b></label>
-                                    <input type="text" placeholder="Enter ID" fieldName="user_id" required>
                                     <label><b>Name</b></label>
                                     <input type="text" placeholder="Enter Name" fieldName="name" required>
                                     <label><b>Password</b></label>
@@ -192,7 +191,7 @@
     <script>
         // api url
         const api_url = 
-            "http://localhost/laravel_api/public/api/user";
+            "http://localhost/laravel_api/public/api/vaccine";
         // const api_url = "https://61e2e5533050a100176822eb.mockapi.io/user/user"
         var idSelected = '';
         // Defining async function
@@ -211,15 +210,15 @@
             $('table tbody').empty();
 
             for (let e of dataUser) {
-
                 tables.innerHTML +=
                     `<tr>
-                    <td style="display:none" id="id">${e.user_id}</td>    
-                    <td>${e.name}</td>
-                    <td>${e.division}</td>
-                    <td>${e.role}</td> 
-                    <td>${e.phonenumber}</td>
-                    <td>Active</td>
+                    <td style="display:none" id="id">${e.vaccine_id}</td>    
+                    <td>${e.vaccine_id}</td>
+                    <td>${e.manufacturer}</td>
+                    <td>${e.dose_number}</td> 
+                    <td>${e.injected_location}</td>
+                    <td>${e.injected_date}</td>
+                    <td>${e.commodity_number}</td>
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary editbtn" onclick="edit(event)">Edit</button>
@@ -227,10 +226,7 @@
                         </div>
                     </td>
                 </tr>`;
-
             }
-
-
         }
         // Calling that async function
         getapi(api_url);

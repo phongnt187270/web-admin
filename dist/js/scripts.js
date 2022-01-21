@@ -1,11 +1,3 @@
-/*!
-    * Start Bootstrap - SB Admin v7.0.4 (https://startbootstrap.com/template/sb-admin)
-    * Copyright 2013-2021 Start Bootstrap
-    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
-    */
-    // 
-// Scripts
-// 
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -24,3 +16,24 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+function authenLogin(){
+    var u = document.getElementById("inputAccount").value;
+    var p = document.getElementById("inputPassword").value;
+
+    if ( u == "admin" && p == "admin123")
+    {
+        
+        
+            location.href = "tables.html";
+        
+        // href="tables.html"
+    }
+    else
+    {
+        alert("Login Fail");
+
+        
+    }
+
+}

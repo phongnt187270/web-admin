@@ -87,23 +87,21 @@
                     <h1 class="mt-4">Tables</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active">User Management</li>
+                        <li class="breadcrumb-item active">Vaccination Card Management</li>
                     </ol>
-                    <button type="button" class="btn btn-primary" id="btnAdd">Add User</button>
+                    <button type="button" class="btn btn-primary" id="btnAdd">Add VACC</button>
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
-                            User Management
+                            Vaccination Card Management
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th class="col-2">Name</th>
-                                        <th class="col-2">Position</th>
-                                        <th class="col-2">Division</th>
-                                        <th class="col-2">PhoneNumber</th>
-                                        <th class="col-2">State</th>
+                                        <th class="col-2">Vaccination Card ID</th>
+                                        <th class="col-2">Vaccine 1 ID</th>
+                                        <th class="col-2">Vaccine 2 ID</th>                                
                                         <th class="col-2">Modify</th>
                                     </tr>
                                 </thead>
@@ -121,8 +119,6 @@
                                     </div>
                                     <hr>
 
-                                    <label><b>ID</b></label>
-                                    <input type="text" placeholder="Enter ID" fieldName="user_id" required>
                                     <label><b>Name</b></label>
                                     <input type="text" placeholder="Enter Name" fieldName="name" required>
                                     <label><b>Password</b></label>
@@ -192,7 +188,7 @@
     <script>
         // api url
         const api_url = 
-            "http://localhost/laravel_api/public/api/user";
+            "http://localhost/laravel_api/public/api/vaccination_info";
         // const api_url = "https://61e2e5533050a100176822eb.mockapi.io/user/user"
         var idSelected = '';
         // Defining async function
@@ -214,12 +210,10 @@
 
                 tables.innerHTML +=
                     `<tr>
-                    <td style="display:none" id="id">${e.user_id}</td>    
-                    <td>${e.name}</td>
-                    <td>${e.division}</td>
-                    <td>${e.role}</td> 
-                    <td>${e.phonenumber}</td>
-                    <td>Active</td>
+   
+                    <td>${e.vaccination_info_id}</td>
+                    <td>${e.vaccination_injection_1}</td>
+                    <td>${e.vaccination_injection_2}</td> 
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary editbtn" onclick="edit(event)">Edit</button>
